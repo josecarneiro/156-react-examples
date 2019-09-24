@@ -8,7 +8,7 @@ class App extends Component {
       name: "José",
       age: 26,
       profession: "Lead Teacher at Ironhack Lisbon",
-      reportsTo: undefined,
+      reportsTo: "",
       teamMembers: [
         { id: "alvaro", name: "Álvaro" },
         { id: "goncalo", name: "Gonçalo" },
@@ -80,9 +80,9 @@ class App extends Component {
               onChange={this.handleManagerChange}
               value={this.state.reportsTo}
             >
-              {/* <option disabled selected>
+              <option disabled value="">
                 Select Manager
-              </option> */}
+              </option>
               {this.state.teamMembers.map(member => (
                 <option value={member.name} key={member.id}>
                   {member.name}
