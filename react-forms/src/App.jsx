@@ -14,6 +14,27 @@ class App extends Component {
         { id: "goncalo", name: "Gonçalo" },
         { id: "carmen", name: "Carmen" }
       ]
+      // search: "",
+      // foods: [
+      //   {
+      //     name: "Pizza",
+      //     calories: 400,
+      //     image: "https://i.imgur.com/eTmWoAN.png",
+      //     quantity: 0
+      //   },
+      //   {
+      //     name: "Salad",
+      //     calories: 150,
+      //     image: "https://i.imgur.com/DupGBz5.jpg",
+      //     quantity: 0
+      //   },
+      //   {
+      //     name: "Sweet Potato",
+      //     calories: 120,
+      //     image: "https://i.imgur.com/hGraGyR.jpg",
+      //     quantity: 0
+      //   }
+      // ]
     };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleAgeChange = this.handleAgeChange.bind(this);
@@ -45,8 +66,21 @@ class App extends Component {
     });
   }
 
+  get message() {
+    return `Hello, my name is ${this.state.name}, I am ${
+      this.state.age
+    } years old, I work as a ${this.state.profession} and report to ${this.state
+      .reportsTo || "nobody"}.`;
+  }
+
+  get selectedFoods() {
+    return this.state.foods.filter(food =>
+      food.name.includes(this.state.search)
+    );
+  }
+
   render() {
-    // console.log(this.state);
+    const message = this.message;
     return (
       <div className="App">
         <form>
@@ -91,11 +125,7 @@ class App extends Component {
             </select>
           </div>
         </form>
-        <p>
-          Hello, my name is {this.state.name}, I am {this.state.age} years old,
-          I work as a {this.state.profession} and report to{" "}
-          {this.state.reportsTo || "nobody"}.
-        </p>
+        <p>{message}</p>
       </div>
     );
   }
