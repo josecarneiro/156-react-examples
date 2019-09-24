@@ -16,7 +16,12 @@ class App extends React.Component {
     const isAdmin = user.role === 'admin';
     const isJose = user.name === 'José';
 
-    const students = ['Beni', 'Paula', 'Brandy', 'Elyas'];
+    const students = [
+      { id: 'beni', name: 'Beni' },
+      { id: 'paula', name: 'Paula' },
+      { id: 'brandy', name: 'Brandy' },
+      { id: 'elyas', name: 'Elyas' }
+    ];
 
     return (
       <div className="App">
@@ -35,7 +40,7 @@ class App extends React.Component {
           */}
           <ul>
             {students.map(student => (
-              <li>{student}</li>
+              <li key={student.id}>{student.name}</li>
             ))}
           </ul>
         </header>
