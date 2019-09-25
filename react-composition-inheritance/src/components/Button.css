@@ -1,0 +1,7 @@
+.basic-button {
+  padding: 1em;
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: linear-gradient(-45deg, rgb(56, 212, 56), yellow, orange, red);
+}
