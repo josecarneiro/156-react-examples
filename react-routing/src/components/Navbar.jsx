@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import projects from "./../projects";
+
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,11 @@ export default class Navbar extends Component {
         <Link to="/about">About</Link>
         <Link to="/pricing">Pricing</Link>
         <button onClick={this.increment}>{this.state.count}</button>
+        {projects.map(project => (
+          <Link to={`/project/${project.id}`} key={project.id}>
+            {project.name}
+          </Link>
+        ))}
       </nav>
     );
   }

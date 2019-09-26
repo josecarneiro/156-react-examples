@@ -10,12 +10,24 @@ export default class ProjectView extends Component {
     };
   }
 
-  componentDidMount() {
-    const id = this.props.match.params.id;
+  // For our class component view to be reactive to changes in params
+  // we will not be able to use componentDidMount
+  // componentDidMount() {
+  //   const id = this.props.match.params.id;
+  //   const project = projects.find(item => item.id === id);
+  //   this.setState({
+  //     project
+  //   });
+  // }
+
+  // To update my state whenever my props change, I will need to do this
+  static getDerivedStateFromProps(props, state) {
+    const id = props.match.params.id;
     const project = projects.find(item => item.id === id);
-    this.setState({
+    return {
+      ...state,
       project
-    });
+    };
   }
 
   render() {

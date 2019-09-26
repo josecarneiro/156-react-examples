@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+a {
+  display: inline-flex;
+  padding: 1em;
+  color: inherit;
+}
