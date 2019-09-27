@@ -44,7 +44,12 @@ class App extends Component {
             <Col>
               <Switch>
                 <Route path="/" exact component={HomeView} />
-                <Route path="/pokemon/:id" component={PokemonView} />
+                <Route
+                  path="/pokemon/:id"
+                  render={props => (
+                    <PokemonView {...props} message="Hello world!" />
+                  )}
+                />
               </Switch>
             </Col>
           </Row>

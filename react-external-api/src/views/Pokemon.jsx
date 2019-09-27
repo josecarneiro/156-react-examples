@@ -20,6 +20,7 @@ export default class Pokemon extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const id = this.props.match.params.id;
+    console.log(prevProps.match, this.props.match);
     if (prevProps.match.params.id !== id || !this.state.pokemon) {
       load(id)
         .then(pokemon => {
@@ -39,6 +40,7 @@ export default class Pokemon extends Component {
       pokemon && (
         <div>
           <h1>{pokemon.name}</h1>
+          <h3>Message from parent: {this.props.message}</h3>
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         </div>
       )
